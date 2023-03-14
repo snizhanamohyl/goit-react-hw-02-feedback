@@ -1,6 +1,8 @@
 import { Component } from "react";
-import css from './FeedbackOptions.module.css';
+import PropTypes from 'prop-types';
 import {EmojiFrown, EmojiNeutral, EmojiSmile } from 'react-bootstrap-icons';
+import css from './FeedbackOptions.module.css';
+
 
 export default class FeedbackOptions extends Component {
     
@@ -27,4 +29,9 @@ export default class FeedbackOptions extends Component {
             return <li key={option} className={css["btn-item"]}><button className={css.btn} onClick={onLeaveFeedback} option={option}><span className="value">{option}</span>{iconComponent}</button></li>
         })}</ul>;
     }
+}
+
+FeedbackOptions.propTypes = {
+    options: PropTypes.arrayOf(PropTypes.string.isRequired),
+    onLeaveFeedback: PropTypes.func.isRequired,
 }
