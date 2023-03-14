@@ -20,6 +20,8 @@ export default class FeedbackOptions extends Component {
                 case "bad":
                     iconComponent = <EmojiFrown className={ css.icon}/>;
                     break;
+                default:
+                    iconComponent = <EmojiSmile  className={ css.icon}/>;
             }
 
             return <li key={option} className={css["btn-item"]}><button className={css.btn} onClick={onLeaveFeedback} option={option}><span className="value">{option}</span>{iconComponent}</button></li>
